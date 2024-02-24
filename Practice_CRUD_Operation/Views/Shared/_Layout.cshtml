@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/css/index.css")" rel="stylesheet" />
+</head>
+<body>
+    <div class="navbar navbar-expand bg-dark">
+        <div class="container">
+            @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand text-white" })
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse">
+                <ul class="nav">
+                    <li class="nav-item"><a href="@Url.Action("Index", "Home")" class="nav-link text-white">Home</a></li>
+                    <li class="nav-item"><a href="@Url.Action("Login", "UserManagement")" class="nav-link text-white">Login</a></li>
+                    <li class="nav-item"><a href="@Url.Action("Create", "UserManagement")" class="nav-link text-white">Create</a></li>
+                    @if (Session["UserID"] != null)
+                    {
+                        <li class="nav-item"><a href="@Url.Action("Read", "UserManagement")" class="nav-link text-white">Read @Session["UserID"].ToString()</a></li>
+                    }
+                    <li class="nav-item"><a href="@Url.Action("About", "Home")" class="nav-link text-white">About</a></li>
+                    <li class="nav-item"><a href="@Url.Action("Contact", "Home")" class="nav-link text-white">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    <script src="@Url.Content("~/Scripts/jquery-3.7.1.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/js/login.js")"></script>
+    <script src="@Url.Content("~/Scripts/notify.min.js")"></script>
+
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

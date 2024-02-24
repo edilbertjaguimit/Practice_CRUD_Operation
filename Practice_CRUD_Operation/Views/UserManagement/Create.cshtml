@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+
+<div class="row col-6 mt-5">
+    @if (TempData["Inserted"] != null)
+    {
+        <div id="alertMessage" class="animated fadeOut">
+            <div class="alert alert-success alert-dismissible fade show">
+                <i class="bi bi-check-circle-fill"></i> Account Created
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        </div>
+    }
+    <h2>Create</h2>
+    <form action="@Url.Action("Create", "UserManagement")" method="post" enctype="multipart/form-data">
+        <div class="mb-2">
+            <label for="">First name</label>
+            <input type="text" class="form-control" name="firstname" placeholder="First name" />
+        </div>
+        <div class="mb-2">
+            <label for="">Last name</label>
+            <input type="text" class="form-control" name="lastname" placeholder="Last name" />
+        </div>
+        <div class="mb-2">
+            <label for="">Email</label>
+            <input type="text" class="form-control" name="email" placeholder="Email" />
+        </div>
+        <div class="mb-2">
+            <label for="">Password</label>
+            <input type="password" class="form-control" name="password" placeholder="Password" />
+        </div>
+        <div class="mb-2">
+            <label for="">Confirm Password</label>
+            <input type="password" class="form-control" name="confirmPassword" placeholder="Confirm Password" />
+        </div>
+        <div class="mb-2">
+            <a href="@Url.Action("Login", "UserManagement")" class="">Back to login</a>
+        </div>
+        <div class="">
+            <input type="submit" class="btn btn-primary" value="Submit" />
+        </div>
+    </form>
+</div>

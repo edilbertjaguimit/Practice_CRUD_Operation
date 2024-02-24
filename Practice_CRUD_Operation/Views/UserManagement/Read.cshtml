@@ -1,0 +1,24 @@
+﻿@using Practice_CRUD_Operation.Models;
+@model IEnumerable<User>
+@{
+    ViewBag.Title = "Read";
+}
+
+<div class="">
+    <table class="table table-striped">
+        <tr>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Email</th>
+        </tr>
+        @foreach (var user in Model)
+        {
+            <tr>
+
+                <td>@user.Firstname</td>
+                <td>@user.Lastname</td>
+                <td>@user.Email</td>
+            </tr>
+        }
+    </table>
+</div>

@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+<div class="row col-6 mt-5">
+    <h2>Login</h2>
+    <form action="@Url.Action("Create", "UserManagement")" method="post">
+        <div class="mb-2">
+            <label for="">Email</label>
+            <input type="text" class="form-control" name="email" id="txtEmail" placeholder="Email" />
+        </div>
+        <div class="mb-2">
+            <label for="">Password</label>
+            <input type="password" class="form-control" name="password" id="txtPassword" placeholder="Password" />
+        </div>
+        <div class="mb-2">
+            <a href="@Url.Action("Create", "UserManagement")" class="">Create Account</a>
+        </div>
+        <div class="">
+            <input type="button" class="btn btn-primary" id="btnLogin" value="Login" />
+        </div>
+    </form>
+</div>
