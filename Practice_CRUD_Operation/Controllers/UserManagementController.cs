@@ -74,6 +74,7 @@ namespace Practice_CRUD_Operation.Controllers
                 if (await _userManagement.CheckPasswordAsync(user.Email, password))
                 {
                     Session["UserID"] = user.Id;
+                    Session["UserInfo"] = user;
                     data.Add(new { success = 1, email = email, password = password });
                 }
                 else
