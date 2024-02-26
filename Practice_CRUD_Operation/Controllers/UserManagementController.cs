@@ -48,7 +48,7 @@ namespace Practice_CRUD_Operation.Controllers
             return View(userData);
         }
 
-        public ActionResult Update()
+        public async Task<ActionResult> Update(int id, string page)
         {
             return View();
         }
@@ -85,5 +85,6 @@ namespace Practice_CRUD_Operation.Controllers
             else data.Add(new { success = 3 });
             return Json(data, JsonRequestBehavior.AllowGet);
         }
+
     }
 }
