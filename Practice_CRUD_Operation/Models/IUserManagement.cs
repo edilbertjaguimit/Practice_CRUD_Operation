@@ -12,5 +12,6 @@ namespace Practice_CRUD_Operation.Models
         Task<bool> InsertAsync(User user);
         Task<bool> CheckEmailAsync(string email);
         Task<bool> CheckPasswordAsync(string email, string password);
+        Task<bool> UpdateAsync(User user);
     }
 }

@@ -78,5 +78,28 @@ namespace Practice_CRUD_Operation.Models
             var user = users.FirstOrDefault(u => u.Email == email);
             return BCrypt.Net.BCrypt.EnhancedVerify(password, user.Password);
         }
+
+        public async Task<bool> UpdateAsync(User user)
+        {
+            string updateQuery = "";
+            await Update(updateQuery, user.Id);
+            return false;
+        }
+
+        public async Task<bool> Update(string updateQuery, int id)
+        {
+            using(var db = new SqlConnection(_connString))
+            {
+                await db.OpenAsync();
+                using(var cmd = db.CreateCommand())
+                {
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = updateQuery;
+                    cmd.Parameters.AddWithValue("id", id);
+                    var ctr = await cmd.ExecuteNonQueryAsync();
+                    return ctr > 0;
+                }
+            }
+        }
     }
 }

@@ -50,6 +50,7 @@ namespace Practice_CRUD_Operation.Controllers
 
         public async Task<ActionResult> Update(int id, string page)
         {
+
             return View();
         }
 
